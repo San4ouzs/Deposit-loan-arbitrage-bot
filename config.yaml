@@ -1,0 +1,21 @@
+# Какие страны мониторить на deposits.org (можно расширять)
+countries:
+  - united-kingdom
+  - united-states
+  - latvia
+  - germany
+product_filters:
+  min_deposit_apy: 3.0   # минимальная ставка депозита для рассмотрения (в % годовых)
+  max_loan_apr: 8.0      # максимальная ставка кредита для рассмотрения (в % годовых)
+  min_spread: 1.0        # минимальный спред (депозит APY - кредит APR), чтобы прислать сигнал (в процентных пунктах)
+  min_term_months: 3     # минимальный срок депозита (если удаётся распарсить)
+  max_loan_term_months: 60
+telegram:
+  bot_token: "PUT_YOUR_BOT_TOKEN_HERE"
+  chat_id: "PUT_CHAT_ID_HERE"
+scheduler:
+  interval_minutes: 120   # как часто запускать проверки
+advanced:
+  include_ecb_mir_fallback: true  # если по стране нет конкретных предложений, используем средние по ЕЦБ для справки
+  conservative_penalty_bp: 50     # штраф 0.50% пунктов на спред (на комиссии/налоги/условия)
+  user_tax_rate_pct: 0            # можно задать вашу ставку налога на проценты (в процентах), чтобы учитывать нетто-доход
